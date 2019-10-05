@@ -1,7 +1,7 @@
 Tailwind CSS Autocomplete for Sublime Text 3
 =============
 
-Tailwind CSS Autocomplete plugin for [Tailwind CSS](https://tailwindcss.com/) (v1.0.4).
+Tailwind CSS Autocomplete plugin for [Tailwind CSS](https://tailwindcss.com/) (v1.1.2).
 
 ![screenshot](screenshot.png)
 
