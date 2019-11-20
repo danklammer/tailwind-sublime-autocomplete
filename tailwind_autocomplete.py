@@ -35,11 +35,6 @@ class tailwindCompletions(sublime_plugin.EventListener):
                 return self.class_completions
             else:
                 return []
-        elif view.match_selector(locations[0], "text.html meta.tag - text.html punctuation.definition.tag.begin"):
-
-            # Cursor is in a tag, but not inside an attribute, i.e. <div {here}>
-            return self.data_completions
-
         else:
 
             return []
