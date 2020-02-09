@@ -10,7 +10,10 @@ class tailwindCompletions(sublime_plugin.EventListener):
 
     def on_query_completions(self, view, prefix, locations):
 
-        if view.match_selector(locations[0], "text.html string.quoted"):
+        matchHTMLString = view.match_selector(locations[0], "text.html string.quoted")
+        matchJSString = view.match_selector(locations[0], "source.js string.quoted")
+
+        if matchHTMLString or matchJSString:
 
             # Cursor is inside a quoted attribute
             # Now check if we are inside the class attribute
@@ -31,10 +34,14 @@ class tailwindCompletions(sublime_plugin.EventListener):
             parts  = line.split('=')
 
             # is the last typed attribute a class attribute?
-            if len(parts) > 1 and parts[-2].strip().endswith("class"):
+            if matchHTMLString:
+              if len(parts) > 1 and parts[-2].strip().endswith("class"):
                 return self.class_completions
-            else:
-                return []
+            if matchJSString:
+              if len(parts) > 1 and parts[-2].strip().endswith("className"):
+                return self.class_completions
+
+            return []
         elif view.match_selector(locations[0], "text.html meta.tag - text.html punctuation.definition.tag.begin"):
 
             # Cursor is in a tag, but not inside an attribute, i.e. <div {here}>
