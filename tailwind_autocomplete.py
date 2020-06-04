@@ -40,6 +40,8 @@ class tailwindCompletions(sublime_plugin.EventListener):
             if matchJSString:
               if len(parts) > 1 and parts[-2].strip().endswith("className"):
                 return self.class_completions
+            if len(parts) > 1 and parts[-2].strip().endswith("class"):
+                return self.class_completions
 
             return []
 
