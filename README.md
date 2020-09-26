@@ -3,6 +3,8 @@ Tailwind CSS Autocomplete for Sublime Text 3
 
 Tailwind CSS Autocomplete plugin for [Tailwind CSS](https://tailwindcss.com/) (v1.8.10).
 
+Note: This plugin only autocompletes based on default Tailwind CSS classnames. It does not extend autocomplete based on your customized `tailwind.config.js`.
+
 ![screenshot](screenshot.png)
 
 You may want to remove the `:` character in your `word_separators` setting in your user **Preference.sublime-settings** file. This will prevent autocomplete from breaking on breakpoint and pseudo classes used within Tailwind.
