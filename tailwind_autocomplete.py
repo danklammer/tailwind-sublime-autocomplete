@@ -9,7 +9,7 @@ class tailwindCompletions(sublime_plugin.EventListener):
         self.class_completions = [("%s \tTailwind Class" % s, s) for s in tailwind_classes]
 
     def on_query_completions(self, view, prefix, locations):
-        jsSources = ["source.js string.quoted", "source.ts string.quoted", "source.tsx string.quoted"]
+        jsSources = ["source.js string.quoted", "source.jsx string.quoted", "source.ts string.quoted", "source.tsx string.quoted"]
 
         matchHTMLString = view.match_selector(locations[0], "text.html string.quoted")
         matchJSString = next(filter(lambda source: view.match_selector(locations[0], source), jsSources), None)
